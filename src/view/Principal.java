@@ -26,9 +26,6 @@ import controller.*;
 public class Principal implements Serializable{
 
 	private static Icontroller ic= new Controller();
-	/*private static ColecaoPessoa pessoa = new ColecaoPessoa();
-	private static ColecaoVeiculo veiculo = new ColecaoVeiculo();*/
-	private static ColecaoLocacao locacao = new ColecaoLocacao();
 
 	public static void main(String[] args) throws Exception {
 
@@ -394,12 +391,12 @@ public class Principal implements Serializable{
 		double d = 0;
 
 
-		System.out.print("Digite a data de devolucao: ");
-	//	data = lerData();
+	/*	System.out.print("Digite a data de devolucao: ");
+		data = lerData();
 		dataDev=getData();
-		locacao.setDataDevolucao(dataDev);
+		locacao.setDataDevolucao(dataDev);*/
 		
-	   System.out.print("Digite a data de Retidada: ");
+	   System.out.print("Digite a data de Retirada: ");
 	   dataRet=getData();
 	   locacao.setDataRetirada(dataRet);
 		System.out.println("Digite a data de devolucao: ");
@@ -463,7 +460,7 @@ public class Principal implements Serializable{
 		if( !sc.hasNextDouble())
 		{
 			sc.next();
-			System.out.printf("\nvoce deve digitar um Real: ");
+			System.out.printf("\nvoce deve digitar um numero Real: ");
 			return lerDouble();
 		}
 		return sc.nextDouble();
@@ -578,7 +575,7 @@ public class Principal implements Serializable{
 
 
 		do {
-			System.out.println("Digite o Mes");
+			System.out.print("Digite o Mes: ");
 			mes=lerInteiro();
 			
 		} while ((mes<0)||(mes>12));
@@ -589,7 +586,7 @@ public class Principal implements Serializable{
 	public static int lerAno(){
 		int ano = 0;
 		do {
-			System.out.print("Digite o Ano");
+			System.out.print("Digite o Ano: ");
 			ano=lerInteiro();
 
 		} while ((ano<2016)||(ano>2100));
@@ -602,7 +599,7 @@ public class Principal implements Serializable{
 		int dia = 0;
 
 		do {
-			System.out.print("Digite o Dia");
+			System.out.print("Digite o Dia: ");
 			dia=lerInteiro();
 
 		} while ((dia<1)||(dia>31));
@@ -614,7 +611,7 @@ public class Principal implements Serializable{
 		int hora = 0;
 
 		do {
-			System.out.print("Digite a Hora");
+			System.out.print("Digite a Hora: ");
 			hora=lerInteiro();
 
 		} while ((hora<0)||(hora>23));
