@@ -105,33 +105,18 @@ public class ControllerNetServer implements INetServer, Serializable{
 			InputStream in = client.getInputStream();
 			int i = in.read();
 			System.out.println(i);
-			
-		//	BufferedReader bin = new BufferedReader(new InputStreamReader(in));
-			
-		//	op = bin.readLine();
-		//	System.out.println(op);
-
-			System.out.println("erro aqui");
 
 			
 			if((i==0)||(i!=1)&&(i!=2)&&(i!=3)){
 				client.close();
 				return false;
 			}
-			
-		//	if((op.equals("0"))||(!op.equals("1"))&&(!op.equals("2"))&&(!op.equals("3"))){
-		//		client.close();
-		//		return false;
-		//	}
 			else{
 			
 				/*recebimento do objeto do cliente*/
 /*erro*/		ObjectInputStream inStream = new ObjectInputStream(client.getInputStream());
 				Object obj =  inStream.readObject();
 
-				
-
-				System.out.println("erro aqui");
 
 				if(obj!=null){
 					switch(i){
@@ -195,21 +180,11 @@ public class ControllerNetServer implements INetServer, Serializable{
 			int i = in.read();
 			System.out.println(i);
 			
-		//	BufferedReader bin = new BufferedReader(new InputStreamReader(in));
-	
-			
-		//	op = bin.readLine();
-		//	System.out.println(op);
 			
 			if((i==0)||(i!=1)&&(i==2)&&(i==3)){
 				client.close();
 				return false;
 			}
-			
-		//	if((op.equals("0"))||(!op.equals("1"))&&(!op.equals("2"))&&(!op.equals("3"))){
-		//		client.close();
-		//		return false;
-		//	}
 			else{
 				ObjectOutputStream outStream = new ObjectOutputStream(client.getOutputStream());
 				Object obj = new Object();
@@ -281,34 +256,6 @@ public class ControllerNetServer implements INetServer, Serializable{
 		
 		return true;
 	}*/
-
-	public boolean enviarArqLocacoes(Socket client) throws Exception{
-		
-		OutputStream out = client.getOutputStream();
-		ObjectOutputStream objOut = new ObjectOutputStream(out);
-		
-		Object obj = new Object();
-		obj = id.carregarArq("locacoes.obj");
-		
-		objOut.writeObject(obj);
-		objOut.writeObject(obj);
-		return true;
-	}
-	
-	public boolean receberArqLocacoes(Socket client) throws Exception{
-		
-		
-		Object obj = new Object();
-		
-		InputStream in = client.getInputStream();
-		ObjectInputStream objIn = new ObjectInputStream(in);
-		
-		obj = objIn.readObject();
-		
-		id.salvarEmArq(obj, "locacoes.obj");
-		
-		return true;
-	}
 
 	
 }

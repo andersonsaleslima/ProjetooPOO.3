@@ -396,7 +396,7 @@ public class Principal implements Serializable{
 		dataDev=getData();
 		locacao.setDataDevolucao(dataDev);*/
 		
-	   System.out.print("Digite a data de Retirada: ");
+	   System.out.println("Digite a data de Retirada: ");
 	   dataRet=getData();
 	   locacao.setDataRetirada(dataRet);
 		System.out.println("Digite a data de devolucao: ");

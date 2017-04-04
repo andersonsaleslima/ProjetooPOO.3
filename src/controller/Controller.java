@@ -141,9 +141,6 @@ public class Controller implements Icontroller, Serializable{
 			System.err.println("erro ao pesquisar veiculos");
 		}
 		return null;
-
-
-
 	}
 
 	@Override
