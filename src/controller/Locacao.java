@@ -137,7 +137,7 @@ public class Locacao implements Serializable {
 	public String toString() {
 		return "\nLocacao [dataRetirada=" + dataRetirada + ", dataDevolucao=" + dataDevolucao + ", pessoa[nome=" + pessoa.getNome()+ 
 				", CPF=" + pessoa.getCpf() + ", Veiculo=" + veiculo.toString() + " Id da Locação: "+this.id+
-				" Valor Da Localizacao "+calcValorLoc()+ "]\n";
+				" Valor Da Locacao "+calcValorLoc()+ "]\n";
 	}
 	
 	

@@ -87,7 +87,7 @@ public class Principal implements Serializable{
 					+" 6- Remover Pessoa              12-Procurar Veiculo              19- Remover Locacao             |\n"
 					+"|                                13-Remover Veiculo                                               |\n"
 					+"|                                                                                                 |\n|                                                                                                 |\n|"
-					+"                              0- Sair                                                            |\n|"   
+					+"                            20 - Salvar Alterações  0- Sair                                       |\n|"   
 					+"                                                                                                 |\n|"
 					+"_________________________________________________________________________________________________|");
 
@@ -187,6 +187,11 @@ public class Principal implements Serializable{
 				i = lerInteiro();
 				ic.removerLocacao(i);
 				break;
+			case 20:
+				/*if(ic.salvarAteracoes()){
+					System.out.println("Alterações salvas com sucesso");
+				}*/
+				break;
 			}
 		}while(op!=0);
 	}
@@ -208,18 +213,19 @@ public class Principal implements Serializable{
 		}while((op!=1)&&(op!=2));
 
 		if(op==1){
-			lerDadosPessoa(client);
+			if(!lerDadosPessoa(client)){
+				return false;
+			}
 			System.out.print("digite a cnh:");
 			str = lerDocumento();
 			client.setCnh(str);
 			System.out.print("digite a categoria:");
-			sc.nextLine();
 			str = sc.nextLine();
 			client.setCategoriaCnh(str);
 
-			//	System.out.println(client);
+			
 			ic.addPessoa(client);
-			//	System.out.println(client);
+			
 			return true;
 		}
 		if(op==2){
@@ -242,11 +248,11 @@ public class Principal implements Serializable{
 
 		System.out.print("digite o cpf da pessoa: ");
 		str = lerDocumento();
-		/*	if(ic.pesquisarPessoaPeloCPF(str)!= null)
+		if(ic.pesquisarPessoaPeloCPF(str)!= null)
 		{
 			System.out.println("pessoa já está cadastrado");
 			return false;
-		}*/
+		}
 		p.setCpf(str);
 
 		System.out.print("digite o nome da pessoa: ");
@@ -254,15 +260,8 @@ public class Principal implements Serializable{
 		p.setNome(str);
 
 		System.out.print("digite a data de Nascimento: ");
-
-	//	str = lerData();
-	//	p.setDataNascimento(getData());
-	//	p.setDataNascimento(str);
-
-		//str = lerData(sc);
+	
 		p.setDataNascimento(getData2());
-		//	p.setDataNascimento(str);
-
 
 		System.out.print("digite o login: ");
 		str = sc.nextLine();
@@ -291,6 +290,7 @@ public class Principal implements Serializable{
 		endereco.setEstado(str);
 
 		p.setEndereco(endereco);
+
 		return true;
 
 	}
@@ -312,7 +312,9 @@ public class Principal implements Serializable{
 		}while((op!=1)&&(op!=2));
 
 		if(op==1){
-			lerDadosVeiculo(automovel);
+			if(!lerDadosVeiculo(automovel)){
+				return false;
+			}
 			System.out.println("digite a quantidade de portas:");
 			i = lerInteiro();
 			automovel.setQtdDePortas(i);
@@ -320,7 +322,9 @@ public class Principal implements Serializable{
 			return true;
 		}
 		if(op==2){
-			lerDadosVeiculo(motocicleta);
+			if(!lerDadosVeiculo(motocicleta)){
+				return false;
+			}
 			System.out.println("digite o estilo:");
 			str = sc.nextLine();
 			motocicleta.setEstilo(str);
@@ -338,16 +342,16 @@ public class Principal implements Serializable{
 		String data = new String();
 		double d = 0;
 
-		/*	if(ic.pesquisarVeiculo(str)!=null)
+		System.out.print("digite a placa: ");
+		
+		System.out.print("Numero: ");
+		str = sc.nextLine();
+		if(ic.pesquisarVeiculo(str)!=null)
 		{
 			System.out.println("veiculo já existe");
 			return false;
-		}*/
-
-		System.out.print("digite a placa: ");
-
-		System.out.print("Numero: ");
-		str = sc.nextLine();
+		}
+		
 		placa.setNumerosEletras(str);
 		System.out.print("Cidade: ");
 		str = sc.nextLine();
@@ -391,23 +395,12 @@ public class Principal implements Serializable{
 		double d = 0;
 
 
-	/*	System.out.print("Digite a data de devolucao: ");
-		data = lerData();
-		dataDev=getData();
-		locacao.setDataDevolucao(dataDev);*/
-		
+	
 	   System.out.println("Digite a data de Retirada: ");
 	   dataRet=getData();
 	   locacao.setDataRetirada(dataRet);
 		System.out.println("Digite a data de devolucao: ");
-		//data = lerData(sc);
-		//dataDev=getData();
-		locacao.setDataDevolucao(getData());
-
-	/*	System.out.println("Digite a data de Retidada: ");
-		dataRet=getData();
-		locacao.setDataRetirada(dataRet);
-		//	locacao.setDataRetirada(data);*/
+				locacao.setDataDevolucao(getData());
 
 		System.out.print("digite o cpf do cliente: ");
 		str = lerDocumento();
@@ -427,7 +420,7 @@ public class Principal implements Serializable{
 
 			if(!ic.pesquisarVeiculo(str).isDisponibilidade()){
 				System.out.println(ic.pesquisarVeiculo(str).toString()+ "Não está Disponível!\n");
-				return true;
+				return false;
 
 
 			}else{
@@ -619,60 +612,5 @@ public class Principal implements Serializable{
 		return hora;
 	}
 
-
-
-	/**
-	 * 
-	 */
-	/*private static final long serialVersionUID = 1L;
-	private static Icontroller ic= new Controller();
-
-	public static void main(String[] args) {
-
-		Cliente      c=new Cliente();
-		Cliente     c1=new Cliente();
-		Funcionario  f=new Funcionario();
-
-		/*comentario
-		c.setCnh("123");
-		c.setNome("Fabiano");
-		c.setCpf("000");
-
-		f.setCargo("gerente");
-		f.setMatricula("321");
-		f.setCpf("001");
-
-
-		c1.setCnh("111");
-		c1.setNome("Roberto");
-		c1.setCpf("011");
-
-
-		ic.addPessoa(f);
-		ic.addPessoa(c);
-		ic.addPessoa(c1);
-
-		System.out.println(ic.listarPessoa().toString());
-
-		for (Cliente cli : ic.listarCliente()) {
-
-			if(cli.getCnh().equals("111")){
-				System.out.println(cli.toString());
-			}
-
-		}
-		System.out.println("Removendo..");
-		ic.removerPessoa("123");
-		ic.removerPessoa("000");
-		System.out.println(ic.listarPessoa().toString());
-
-
-		/*
-
-		ic.listarCliente("123");
-		ic.listarCliente("111");
-		ic.listarCliente("123");
-
-	}*/
 
 }

@@ -51,17 +51,18 @@ public class ControllerDao implements Idao, Serializable{
             	
             	if(file.exists()){
             		
-            	//	if(file.is)
+            	
             		
             		FileInputStream restFile = new FileInputStream(file);
             		ObjectInputStream stream = new ObjectInputStream(restFile);
+            		
             		// recupera o objeto
             	
-            		System.out.println(localizacao);
+            	//	System.out.println(localizacao);
 
             		obj = (Object) stream.readObject();
 
-            		System.out.println(obj+"qualquer coidsa");
+            	
             	//	else{
             	//		return obj;
             	//	}

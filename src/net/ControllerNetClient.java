@@ -40,7 +40,7 @@ public class ControllerNetClient implements INetClient, Serializable {
 	public boolean enviarObject(Object obj, String fileName) throws Exception{
 		
 		try{
-//			ArrayList<String>  array = new ArrayList<String>();
+			ArrayList<Locacao>  array = new ArrayList<Locacao>();
 			
 			Socket sock = new Socket("127.0.0.1",6013);
 			
@@ -87,11 +87,12 @@ public class ControllerNetClient implements INetClient, Serializable {
 			}
 			if((!fileName.equals("pessoas.obj"))&&(!fileName.equals("veiculos.obj"))
 				&&(!fileName.equals("locacoes.obj"))){
+				array = (ArrayList<Locacao>) obj;
+				System.out.println(array.toString());
 				out.write(0);
 				out.flush();
-				System.out.println("escreveu 0 no recebimento");
+				System.out.println("escreveu 0 no envio");
 			}
-			System.out.println(op+" opcao escolhida");
 			
 			
 			/*Terceira Etapa: envio do objeto*/

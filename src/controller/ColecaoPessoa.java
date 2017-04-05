@@ -82,6 +82,16 @@ public class ColecaoPessoa implements Serializable{
 		return false;
 	}
 	
+	public boolean salvarArqDePessoas()throws Exception{
+		try{
+			iNet.enviarObject(this.pessoas, localizacao);
+			return true;
+		}catch(Exception e){
+			
+		}
+		return false;
+	}
+	
 	public boolean addPessoa(Pessoa p)throws Exception{
 		if(!pessoas.contains(p)){
 			pessoas.add(p);

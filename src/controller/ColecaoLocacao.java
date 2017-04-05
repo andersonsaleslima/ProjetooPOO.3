@@ -55,12 +55,24 @@ public class ColecaoLocacao implements Serializable{
 		}
 		return false;
 	}
+	
+	public boolean salvarArqDeLocacoes()throws Exception{
+		try{
+			iNet.enviarObject(this.locacoes, localizacao);
+			return true;
+		}catch(Exception e){
+			
+		}
+		return false;
+	}
 
 	public boolean addLocacao(Locacao locacao)throws Exception{
 		
 		try{
 			if (!locacoes.contains(locacao)){
+				System.out.println(locacao.toString());
 				locacoes.add(locacao);
+				System.out.println(this.locacoes.toString());
 				iNet.enviarObject(this.locacoes, localizacao);
 			//	id.salvarEmArq(this.locacoes, localizacao);
 				return true;

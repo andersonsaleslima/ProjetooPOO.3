@@ -37,6 +37,18 @@ public class Controller implements Icontroller, Serializable{
 		
 	}
 	
+	/*public boolean salvarAlteracoes() throws Exception{
+		try{
+			if((cp.salvarArqDePessoas())&& /*(cv.salvarArqDeVeiculos)&&*//*(cl.salvarArqDeLocacoes())){
+				return true;
+			}
+		}catch (Exception e){
+			System.err.println("erro ao salvar arquivos");
+		}
+		return false;
+		
+	}*/
+	
 	@Override
 	public boolean addPessoa(Pessoa p) throws Exception {
 
@@ -211,8 +223,15 @@ public class Controller implements Icontroller, Serializable{
 
 	@Override
 	public boolean removerLocacao(int id) throws Exception{
-		cl.removerLocacao(id);
-		return true;
+		try{
+			Locacao locacao = pesquisarLocacao(id);
+			pesquisarVeiculo(locacao.getVeiculo().getPlaca().getNumerosEletras()).setDisponibilidade(true);
+			cl.removerLocacao(id);
+			return true;
+		}catch(Exception e){
+			System.err.println("erro ao remover locacao");
+		}
+		return false;
 	}
 
 

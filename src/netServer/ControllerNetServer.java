@@ -202,12 +202,14 @@ public class ControllerNetServer implements INetServer, Serializable{
 					case 2:
 						obj = id.carregarArq("veiculos.obj");
 						System.out.println("veiculos.obj");
+						System.out.println(obj);
 						outStream.writeObject(obj);
 						outStream.flush();
 						break;
 					case 3:
 						obj = id.carregarArq("locacoes.obj");
 						System.out.println("locacoes.obj");
+						System.out.println(obj);
 						outStream.writeObject(obj);
 						outStream.flush();
 						break;
