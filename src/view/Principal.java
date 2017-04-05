@@ -27,6 +27,7 @@ public class Principal implements Serializable{
 
 	private static Icontroller ic= new Controller();
 
+	
 	public static void main(String[] args) throws Exception {
 
 		int op = 0, i=0;
@@ -42,7 +43,7 @@ public class Principal implements Serializable{
 			System.out.println("3- Listar Clientes");
 
 		}while(op!=0);*/
-
+		
 		if(!ic.init()){
 			System.out.println("Arquivo não foi carregado");
 		}
@@ -188,9 +189,9 @@ public class Principal implements Serializable{
 				ic.removerLocacao(i);
 				break;
 			case 20:
-				/*if(ic.salvarAteracoes()){
+				if(ic.salvarAlteracoes()){
 					System.out.println("Alterações salvas com sucesso");
-				}*/
+				}
 				break;
 			}
 		}while(op!=0);

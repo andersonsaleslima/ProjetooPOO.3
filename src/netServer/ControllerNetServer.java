@@ -123,7 +123,6 @@ public class ControllerNetServer implements INetServer, Serializable{
 						case 1:
 								id.salvarEmArq(obj,"pessoas.obj");
 								System.out.println("arquivo pessoas.obj salvo com sucesso no Server");
-								System.out.println("arquivo salvo com sucesso no Server");
 
 							break;
 						case 2:
@@ -131,14 +130,12 @@ public class ControllerNetServer implements INetServer, Serializable{
 
 								System.out.println("arquivo veiculos.obj salvo com sucesso no Server");
 
-								System.out.println("arquivo salvo com sucesso no Server");
 
 							break;
 						case 3:
 								id.salvarEmArq(obj,"locacoes.obj");
-
+								System.out.println(obj);
 								System.out.println("arquivo locacoes.obj salvo com sucesso no Server");
-								System.out.println("arquivo salvo com sucesso no Server");
 							break;
 						default:
 					//		client.close();

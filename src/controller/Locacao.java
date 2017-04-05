@@ -19,7 +19,7 @@ import java.time.Period;
 public class Locacao implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private static int id=0;
+	private int id=0;
 	private LocalDateTime dataRetirada;
 	private LocalDateTime dataDevolucao;
 	private Pessoa pessoa;

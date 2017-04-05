@@ -70,9 +70,9 @@ public class ColecaoLocacao implements Serializable{
 		
 		try{
 			if (!locacoes.contains(locacao)){
-				System.out.println(locacao.toString());
+				System.out.println(locacao.toString()+"colecaolocao1");
 				locacoes.add(locacao);
-				System.out.println(this.locacoes.toString());
+				System.out.println(this.locacoes.toString()+"colecaolocao2");
 				iNet.enviarObject(this.locacoes, localizacao);
 			//	id.salvarEmArq(this.locacoes, localizacao);
 				return true;

@@ -22,6 +22,8 @@ public class ColecaoVeiculo implements Serializable{
 	private ArrayList<Veiculo> veiculos;
 	private INetClient iNet = new ControllerNetClient();
 	private Idao id=new ControllerDao();
+
+	
 	private static String localizacao = new String("veiculos.obj");
 	
 	/*
@@ -64,7 +66,16 @@ public class ColecaoVeiculo implements Serializable{
 		}
 		return false;
 	}
-
+	
+	public boolean salvarArqDeVeiculos(){
+		try{
+			iNet.enviarObject(this.veiculos, localizacao);
+			return true;
+		}catch(Exception e){
+			
+		}
+		return false;
+	}
 
 	public boolean addVeiculo(Veiculo v)throws Exception{
 		try{

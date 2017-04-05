@@ -37,9 +37,9 @@ public class Controller implements Icontroller, Serializable{
 		
 	}
 	
-	/*public boolean salvarAlteracoes() throws Exception{
+	public boolean salvarAlteracoes() throws Exception{
 		try{
-			if((cp.salvarArqDePessoas())&& /*(cv.salvarArqDeVeiculos)&&*//*(cl.salvarArqDeLocacoes())){
+			if((cp.salvarArqDePessoas())&& (cv.salvarArqDeVeiculos())&&(cl.salvarArqDeLocacoes())){
 				return true;
 			}
 		}catch (Exception e){
@@ -47,7 +47,7 @@ public class Controller implements Icontroller, Serializable{
 		}
 		return false;
 		
-	}*/
+	}
 	
 	@Override
 	public boolean addPessoa(Pessoa p) throws Exception {
@@ -233,6 +233,7 @@ public class Controller implements Icontroller, Serializable{
 		}
 		return false;
 	}
+
 
 
 }
