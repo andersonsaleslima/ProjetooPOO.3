@@ -70,9 +70,10 @@ public class ColecaoLocacao implements Serializable{
 		
 		try{
 			if (!locacoes.contains(locacao)){
-				System.out.println(locacao.toString()+"colecaolocao1");
+				int i = locacoes.size();
+				i++;
+				locacao.setId(i);
 				locacoes.add(locacao);
-				System.out.println(this.locacoes.toString()+"colecaolocao2");
 				iNet.enviarObject(this.locacoes, localizacao);
 			//	id.salvarEmArq(this.locacoes, localizacao);
 				return true;
@@ -87,9 +88,9 @@ public class ColecaoLocacao implements Serializable{
 	public boolean removerLocacao(int id)throws Exception{
 
 		try{
-			for (Locacao locacao : locacoes) {
+			for (Locacao locacao : this.locacoes) {
 				if (locacao.getId()==id){
-					locacoes.remove(id);
+					locacoes.remove(locacao);
 					this.iNet.enviarObject(this.locacoes, localizacao);
 				//	this.id.salvarEmArq(this.locacoes, localizacao);
 					return true;
@@ -97,7 +98,8 @@ public class ColecaoLocacao implements Serializable{
 			}
 			
 		}catch(Exception e){
-			System.err.println("erro ao remover locacao");
+			e.printStackTrace();
+			System.err.println("erro ao remover locacao - ColecacaoLocacao");
 		}
 		return false;
 

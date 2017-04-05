@@ -88,7 +88,6 @@ public class ControllerNetClient implements INetClient, Serializable {
 			if((!fileName.equals("pessoas.obj"))&&(!fileName.equals("veiculos.obj"))
 				&&(!fileName.equals("locacoes.obj"))){
 
-				System.out.println(obj+"controller net client");
 				out.write(0);
 				out.flush();
 				System.out.println("escreveu 0 no envio");

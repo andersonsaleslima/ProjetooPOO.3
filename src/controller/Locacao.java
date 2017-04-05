@@ -19,7 +19,7 @@ import java.time.Period;
 public class Locacao implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private int id=0;
+	private int id;
 	private LocalDateTime dataRetirada;
 	private LocalDateTime dataDevolucao;
 	private Pessoa pessoa;
@@ -34,7 +34,6 @@ public class Locacao implements Serializable {
 		
 		super();
 		
-		id++;
 	}
 	
 	public Locacao(LocalDateTime dataRetirada, LocalDateTime dataDevolucao, Pessoa pessoa, Veiculo veiculo) {
@@ -42,7 +41,6 @@ public class Locacao implements Serializable {
 		this.dataDevolucao = dataDevolucao;
 		this.pessoa = pessoa;
 		this.veiculo = veiculo;
-		id++;
 	}
 	/**
 	 * Calcula Valor da Locação
@@ -66,6 +64,10 @@ public class Locacao implements Serializable {
 	}
 	public int getId() {
 		return id;
+	}
+	
+	public void setId(int id){
+		this.id = id;
 	}
 	
 	public LocalDateTime getDataRetirada() {
@@ -137,7 +139,7 @@ public class Locacao implements Serializable {
 	public String toString() {
 		return "\nLocacao [dataRetirada=" + dataRetirada + ", dataDevolucao=" + dataDevolucao + ", pessoa[nome=" + pessoa.getNome()+ 
 				", CPF=" + pessoa.getCpf() + ", Veiculo=" + veiculo.toString() + " Id da Locação: "+this.id+
-				" Valor Da Locacao "+calcValorLoc()+ "]\n";
+				" Valor Da Locacao: "+calcValorLoc()+ "]\n";
 	}
 	
 	

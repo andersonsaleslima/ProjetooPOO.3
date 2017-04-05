@@ -134,7 +134,6 @@ public class ControllerNetServer implements INetServer, Serializable{
 							break;
 						case 3:
 								id.salvarEmArq(obj,"locacoes.obj");
-								System.out.println(obj);
 								System.out.println("arquivo locacoes.obj salvo com sucesso no Server");
 							break;
 						default:

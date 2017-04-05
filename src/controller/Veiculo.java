@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  */
 
-public abstract class Veiculo implements Serializable {
+public class Veiculo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Placa placa;

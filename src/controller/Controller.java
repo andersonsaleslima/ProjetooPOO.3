@@ -229,7 +229,8 @@ public class Controller implements Icontroller, Serializable{
 			cl.removerLocacao(id);
 			return true;
 		}catch(Exception e){
-			System.err.println("erro ao remover locacao");
+			e.printStackTrace();
+			System.err.println("erro ao remover locacao - Controller");
 		}
 		return false;
 	}

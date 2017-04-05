@@ -88,7 +88,7 @@ public class Principal implements Serializable{
 					+" 6- Remover Pessoa              12-Procurar Veiculo              19- Remover Locacao             |\n"
 					+"|                                13-Remover Veiculo                                               |\n"
 					+"|                                                                                                 |\n|                                                                                                 |\n|"
-					+"                            20 - Salvar Alterações  0- Sair                                       |\n|"   
+					+"                       				0- Sair                                       			   |\n|"   
 					+"                                                                                                 |\n|"
 					+"_________________________________________________________________________________________________|");
 
@@ -188,7 +188,7 @@ public class Principal implements Serializable{
 				i = lerInteiro();
 				ic.removerLocacao(i);
 				break;
-			case 20:
+			case 0:
 				if(ic.salvarAlteracoes()){
 					System.out.println("Alterações salvas com sucesso");
 				}
@@ -405,10 +405,15 @@ public class Principal implements Serializable{
 
 		System.out.print("digite o cpf do cliente: ");
 		str = lerDocumento();
-		if(ic.pesquisarPessoaPeloCPF(str) instanceof Cliente){
-			locacao.setPessoa(ic.pesquisarPessoaPeloCPF(str));
+		if(ic.pesquisarPessoaPeloCPF(str)!=null){
+			
+			if(ic.pesquisarPessoaPeloCPF(str) instanceof Cliente){
+				locacao.setPessoa(ic.pesquisarPessoaPeloCPF(str));
+			}else{
+				return false;
+			}
 		}else{
-			return false;
+			System.out.println("Cliente não encontrado");
 		}
 
 		/**
@@ -419,17 +424,20 @@ public class Principal implements Serializable{
 			System.out.print("digite o numero da placa do veiculo: ");
 			str = sc.nextLine();
 
-			if(!ic.pesquisarVeiculo(str).isDisponibilidade()){
-				System.out.println(ic.pesquisarVeiculo(str).toString()+ "Não está Disponível!\n");
-				return false;
+			if(ic.pesquisarVeiculo(str)!=null){
 
-
+				if(!ic.pesquisarVeiculo(str).isDisponibilidade()){
+					System.out.println(ic.pesquisarVeiculo(str).toString()+ "Não está Disponível!\n");
+					return false;
+				}else{
+					locacao.setVeiculo(ic.pesquisarVeiculo(str));
+					ic.pesquisarVeiculo(str).setDisponibilidade(false);
+					ic.realizarLocacao(locacao);
+					System.out.println(locacao.toString());
+					v=false;
+				}
 			}else{
-				locacao.setVeiculo(ic.pesquisarVeiculo(str));
-				ic.pesquisarVeiculo(str).setDisponibilidade(false);
-				ic.realizarLocacao(locacao);
-				System.out.println(locacao.toString());
-				v=false;
+				System.out.println("Veículo não encontrado");
 			}
 		}
 
