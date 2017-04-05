@@ -31,6 +31,14 @@ public class ColecaoLocacao implements Serializable{
 		}*/
 	}
 	
+	/**
+	 * método utilizado para acessar servidor de arquivos e carregar as 
+	 * informações contidas no arquivo "locacoes.obj" para o sistema. 
+	 * Retorna boolean, em caso sucesso true, e em caso de falha exibe 
+	 * mensagem e retorna false.
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean carregarArqDeLocacoes()throws Exception{
 		
 		try{
@@ -56,6 +64,12 @@ public class ColecaoLocacao implements Serializable{
 		return false;
 	}
 	
+	/**
+	 * método utilizado para salvar a coleção de veículos no arquivo 
+	 * "locacoes.obj" contido no servidor. 
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean salvarArqDeLocacoes()throws Exception{
 		try{
 			iNet.enviarObject(this.locacoes, localizacao);
@@ -66,6 +80,14 @@ public class ColecaoLocacao implements Serializable{
 		return false;
 	}
 
+	/**
+	 * método utilizado para adicionar locacoes a coleção, passando como parâmetro 
+	 * um objeto do tipo Veiculo, e retornando true em caso de êxito ou false 
+	 * em caso erro.
+	 * @param locacao
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean addLocacao(Locacao locacao)throws Exception{
 		
 		try{
@@ -84,7 +106,15 @@ public class ColecaoLocacao implements Serializable{
 		return false;
 		
 	}
-
+	
+	/**
+	 * método utilizado para remover locações da coleção, passando como parâmetro um tipo int 
+	 * relativo ao número do identificador(id) da locação a ser removida, e retornando true 
+	 * em caso de êxito ou false em caso erro.
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean removerLocacao(int id)throws Exception{
 
 		try{
@@ -106,7 +136,12 @@ public class ColecaoLocacao implements Serializable{
 	}
 	
 	
-	
+	/**
+	 * método utilizado para listar locações da coleção, retornando o objeto ArrayList
+	 * de todas os locações adicionadas na coleção em caso de êxito ou uma mensagem 
+	 * de erro em caso de erro.
+	 * @return
+	 */
 	public ArrayList<Locacao> listarLocacoes(){
 		
 		return this.locacoes;

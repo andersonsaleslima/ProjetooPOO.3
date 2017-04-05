@@ -197,6 +197,13 @@ public class Principal implements Serializable{
 		}while(op!=0);
 	}
 
+	/**
+	 * faz a interatividade com o usuário para obtenção dos valores a serem atribuídos 
+	 * aos atributos de Pessoa e seus herdeiros ao adicionar no sistema. Retornará 
+	 * true em caso de êxito e false em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean adicionarPessoa() throws Exception{
 		int op = 0;
 		Scanner sc = new Scanner(System.in);
@@ -241,6 +248,13 @@ public class Principal implements Serializable{
 		return false;
 	}
 
+	/**
+	 * faz a interatividade com usuário para obtenção dos atributos específicos da 
+	 * classe Pessoa. Retornará true em caso de êxito e false em caso de erro.
+	 * @param p
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean lerDadosPessoa(Pessoa p) throws Exception{
 		String str;
 		Scanner sc = new Scanner(System.in);
@@ -296,6 +310,13 @@ public class Principal implements Serializable{
 
 	}
 
+	/**
+	 * faz a interatividade com o usuário para obtenção dos valores a serem 
+	 * atribuídos aos atributos de Veiculo e seus herdeiros ao adicionar no 
+	 * sistema. Retornará true em caso de êxito e false em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean adicionarVeiculo() throws Exception{
 		int op = 0, i = 0;
 		Scanner sc = new Scanner(System.in);
@@ -336,6 +357,13 @@ public class Principal implements Serializable{
 		return false;
 	}
 
+	/**
+	 * faz a interatividade com usuário para obtenção dos atributos específicos da classe 
+	 * Veiculo. Retornará true em caso de êxito e false em caso de erro.
+	 * @param v
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean lerDadosVeiculo(Veiculo v) throws Exception{
 		String str;
 		Scanner sc = new Scanner(System.in);
@@ -381,6 +409,13 @@ public class Principal implements Serializable{
 
 	}
 
+	/**
+	 * faz a interatividade com o usuário para obtenção dos valores a serem 
+	 * atribuídos aos atributos de Locacao ao adicionar no sistema. 
+	 * Retornará true em caso de êxito e false em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public static boolean adicionarLocacao() throws Exception{
 		String str;
 		Scanner sc = new Scanner(System.in);
@@ -444,6 +479,12 @@ public class Principal implements Serializable{
 		return true;
 	}
 
+	/**
+	 * ler apenas inteiro, caso digitado qualquer valor diferente de um inteiro, 
+	 * será solicitado que se digite novamente, repetindo-se enquanto um 
+	 * inteiro não for digitado.
+	 * @return
+	 */
 	public static int lerInteiro(){
 		Scanner sc = new Scanner(System.in);
 
@@ -456,6 +497,12 @@ public class Principal implements Serializable{
 		return sc.nextInt();
 	}
 
+	/**
+	 * ler apenas números do tipo Duble, caso digitado qualquer valor diferente 
+	 * de um numero, será solicitado que se digite novamente, repetindo-se 
+	 * enquanto um número não for digitado.
+	 * @return
+	 */
 	public static double lerDouble(){
 		Scanner sc = new Scanner(System.in);
 
@@ -468,6 +515,12 @@ public class Principal implements Serializable{
 		return sc.nextDouble();
 	}
 
+	/**
+	 * ler apenas números, caso digitado qualquer valor diferente de um número, 
+	 * será solicitado que se digite novamente, repetindo-se enquanto um 
+	 * número não for digitado.
+	 * @return
+	 */
 	public static String lerDocumento(){
 		Scanner sc = new Scanner(System.in);
 
@@ -480,6 +533,11 @@ public class Principal implements Serializable{
 		return sc.nextLine();
 	}
 
+	/**
+	 * ler apenas String, caso digitado qualquer valor como número, será solicitado que se 
+	 * digite o nome novamente, repetindo-se enquanto um nome não for digitado.
+	 * @return
+	 */
 	public static String lerNome(){
 		Scanner sc = new Scanner(System.in);
 		if( sc.hasNextDouble()  ||  sc.hasNextInt() )
@@ -491,6 +549,11 @@ public class Principal implements Serializable{
 		return sc.nextLine();
 	}
 
+	/**
+	 * ler apenas a data no formato especificado, caso digitado qualquer valor diferente 
+	 * da data especificado, será solicitado que se digite novamente, repetindo-se 
+	 * enquanto o formato da data não for compatível.
+	 */
 	public static String lerData()throws ParseException{
 		Scanner sc = new Scanner(System.in);
 		String leitor, res;
@@ -506,6 +569,11 @@ public class Principal implements Serializable{
 		return leitor;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 * @throws ParseException
+	 */
 	public static String lerDataEHora()throws ParseException{
 		Scanner sc = new Scanner(System.in);
 		String leitor, res;
@@ -537,6 +605,10 @@ public class Principal implements Serializable{
 
 //	static LocalDate getData()throws Exception{
 
+	/**
+	 * ler data no formato LocalDateTime. Retornando o tipo LocalDateTime.
+	 * @return
+	 */
 	public static LocalDateTime getData(){
 
 
@@ -555,6 +627,10 @@ public class Principal implements Serializable{
 		return sData2;
 	}
 	
+	/**
+	 * ler data no formato LocalDate. Retornando o tipo LocalDate.
+	 * @return
+	 */
 	public static LocalDate getData2(){
 
 			DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -571,7 +647,10 @@ public class Principal implements Serializable{
 			return sData;
 	}
 	
-	
+	/**
+	 * interatividade com usuario para ler  mes em formato de numero.
+	 * @return
+	 */
 	public static int lerMes(){
 		int mes = 0;
 
@@ -585,6 +664,10 @@ public class Principal implements Serializable{
 		return mes;
 	}
 	
+	/**
+	 * interatividade com usuario para ler ano em formato de numero.
+	 * @return
+	 */
 	public static int lerAno(){
 		int ano = 0;
 		do {
@@ -597,6 +680,10 @@ public class Principal implements Serializable{
 
 	}
 
+	/**
+	 * interatividade com usuario para ler dia em formato de numero.
+	 * @return
+	 */
 	public static int lerDia(){
 		int dia = 0;
 
@@ -609,6 +696,10 @@ public class Principal implements Serializable{
 		return dia;
 	}
 
+	/**
+	 * interatividade com usuario para ler ano em formato de numero.
+	 * @return
+	 */
 	public static int lerHora(){
 		int hora = 0;
 

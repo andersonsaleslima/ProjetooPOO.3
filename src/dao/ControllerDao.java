@@ -19,6 +19,10 @@ public class ControllerDao implements Idao, Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * salva objetos passados por parametro em um arquivo, com o caminho e nome do arquivo 
+	 * a ser salvo também passado por parâmetro;
+	 */
 	@Override
 	public boolean salvarEmArq(Object obj, String localizacao) throws Exception{
 		
@@ -40,6 +44,10 @@ public class ControllerDao implements Idao, Serializable{
 		return false;
 	}
 
+	/**
+	 * recupera os arquivos salvos, passando como parâmetro 
+	 * uma String com o caminho e nome do arquivo ;
+	 */
 	@Override
 	public Object carregarArq(String localizacao)throws Exception{
 

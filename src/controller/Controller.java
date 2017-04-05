@@ -75,6 +75,10 @@ public class Controller implements Icontroller, Serializable{
 		return cp.listarFuncionarios();
 	}
 
+	/**
+	 * método utilizado para pesquisar pessoas da coleção, retornando o objeto 
+	 * pessoa em caso de êxito ou uma mensagem de erro em caso de erro.
+	 */
 	@Override
 	public Pessoa pesquisarPessoaPeloCPF(String cpf) throws Exception{
 		try{
@@ -137,7 +141,11 @@ public class Controller implements Icontroller, Serializable{
 		// TODO Auto-generated method stub
 		return cv.listarMotocicleta();
 	}
-
+	
+	/**
+	 * método utilizado para pesquisar veículos da coleção, retornando o objeto Veiculo 
+	 * em caso de êxito ou uma mensagem de erro em caso de erro.
+	 */
 	@Override
 	public Veiculo pesquisarVeiculo(String placa) throws Exception{
 
@@ -176,6 +184,11 @@ public class Controller implements Icontroller, Serializable{
 		return cl.listarLocacoes();
 	}
 
+	/**
+	 *  método utilizado para pesquisar locações da coleção passndo por parametro 
+	 *  uma String referente ao cpf do Cliente, retornando o objeto Locacao em caso 
+	 *  de êxito ou uma mensagem de erro em caso de erro.
+	 */
 	@Override
 	public Locacao pesquisarLocPorPessoa(String cpf) throws Exception{
 		try{
@@ -192,6 +205,11 @@ public class Controller implements Icontroller, Serializable{
 		return null;
 	}
 
+	/**
+	 * método utilizado para pesquisar locações da coleção passando por parametro 
+	 * uma String referente aos numeros e Letras da placa do veículo, retornando 
+	 * o objeto Locacao em caso de êxito ou uma mensagem de erro em caso de erro.
+	 */
 	@Override
 	public Locacao pesquisarLocPorVeiculo(String placa) throws Exception{
 		try{
@@ -207,6 +225,10 @@ public class Controller implements Icontroller, Serializable{
 		return null;
 	}
 
+	/**
+	 * método utilizado para pesquisar locações da coleção, retornando o objeto Locacao 
+	 * em caso de êxito ou uma mensagem de erro em caso de erro.
+	 */
 	@Override
 	public Locacao pesquisarLocacao(int id)throws Exception{
 		try{
@@ -234,7 +256,6 @@ public class Controller implements Icontroller, Serializable{
 		}
 		return false;
 	}
-
 
 
 }

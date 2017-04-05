@@ -36,6 +36,12 @@ public class ControllerNetClient implements INetClient, Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * recebe como parâmetro um tipo Object e um tipo String, o tipo Object
+	 * será enviado para o servidor e a string serve para informar o nome 
+	 * do arquivo a ser enviado ao servidor, sendo que existe apenas três 
+	 * nomes possíveis para envio: pessoas.obj, veículos.obj, locações.obj .
+	 */
 	@Override
 	public boolean enviarObject(Object obj, String fileName) throws Exception{
 		
@@ -107,6 +113,12 @@ public class ControllerNetClient implements INetClient, Serializable {
 		return false;
 	}
 
+	/**
+	 * recebe como parâmetro um tipo String, a string server para informar o nome 
+	 * do arquivo a ser obtido do servidor, sendo que existe apenas três nomes 
+	 * possíveis para recebiemento: pessoas.obj, veículos.obj, locações.obj.
+	 * 
+	 */
 	@Override
 	public Object receberObject(String arquivo)throws Exception{
 		Object obj = new Object();

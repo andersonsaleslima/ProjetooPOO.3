@@ -32,6 +32,11 @@ public class ControllerNetServer implements INetServer, Serializable{
 	private static final long serialVersionUID = 1L;
 	private Idao id=new ControllerDao();
 	
+	/**
+	 * método utilizado para inicializar o servidor, recebendo o primeiro 
+	 * índice de do cliente, referente ao fato do cliente desejar enviar 
+	 * ou receber algo para o servidor.
+	 */
 	@Override
 	public void initServer()throws Exception{
 		try{
@@ -88,6 +93,13 @@ public class ControllerNetServer implements INetServer, Serializable{
 		}
 	}
 
+	/**
+	 * receber como parâmetro um tipo Socket, referente a conexão com o cliente, 
+	 * tendo o objetivo de receber objetos por parte do cliente e salvado estes 
+	 * em arquivos, sendo a opção de salvamento reservado a três tipos de 
+	 * arquivos: pessoas.obj, veículos.obj, locações.obj. Retorna true em caso 
+	 * de êxito ou false em caso de falha.
+	 */
 	@Override
 	public boolean receberObeject(Socket client) throws Exception {
 		
@@ -155,6 +167,13 @@ public class ControllerNetServer implements INetServer, Serializable{
 		return false;
 	}
 
+	/**
+	 * recebe como parâmetro um tipo Socket, referente a conexão com o cliente, 
+	 * tendo o objetivo de enviar objetos para o cliente e que estará contido 
+	 * em arquivos salvos, sendo reservado a três tipos de arquivos: 
+	 * pessoas.obj, veículos.obj, locações.obj. Retorna true em caso de êxito 
+	 * ou false em caso de falha.
+	 */
 	@Override
 	public boolean enviarObject(Socket client) throws Exception{
 

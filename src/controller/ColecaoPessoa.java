@@ -51,6 +51,15 @@ public class ColecaoPessoa implements Serializable{
 			System.err.println("erro ao obter arquivo");
 		}
 	}*/
+	
+	/**
+	 * Método utilizado para acessar servidor de arquivos e carregar as 
+	 * informações contidas no arquivo "pessoas.obj" para o sistema. 
+	 * Retorna boolean, em caso sucesso true, e em caso de falha 
+	 * exibe mensagem e retorna false.
+	 * @return
+	 * @throws Exception
+	 */
 
 	public boolean carregarArqDePessoas()throws Exception{
 		
@@ -82,6 +91,13 @@ public class ColecaoPessoa implements Serializable{
 		return false;
 	}
 	
+	/**
+	 * Método utilizado para salvar a coleção de pessoas no 
+	 * arquivo "pessoas.obj" contido no servidor.
+	 * @return
+	 * @throws Exception
+	 */
+	
 	public boolean salvarArqDePessoas()throws Exception{
 		try{
 			iNet.enviarObject(this.pessoas, localizacao);
@@ -91,6 +107,15 @@ public class ColecaoPessoa implements Serializable{
 		}
 		return false;
 	}
+	
+	/**
+	 * Método utilizado para adicionar pessoas a coleção, passando 
+	 * como parâmetro um objeto do tipo Pessoa, e retornando true 
+	 * em caso de êxito ou false em caso erro.
+	 * @param p
+	 * @return
+	 * @throws Exception
+	 */
 	
 	public boolean addPessoa(Pessoa p)throws Exception{
 		if(!pessoas.contains(p)){
@@ -112,6 +137,13 @@ public class ColecaoPessoa implements Serializable{
 		return false;
 	}
 
+	/**
+	 * método utilizado para listar pessoas da coleção, retornando o objeto ArrayList 
+	 * de todas as pessoas adicionadas na coleção em caso de êxito ou uma mensagem de 
+	 * erro em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Pessoa> listarPessoa()throws Exception{
 		try{
 		//	if(!pessoas.isEmpty()){
@@ -124,6 +156,13 @@ public class ColecaoPessoa implements Serializable{
 		return null;
 	}
 
+	/**
+	 * método utilizado para listar Clientes da coleção, retornando um objeto ArrayList 
+	 * de todos os clientes  adicionados na coleção em caso de êxito ou uma mensagem de 
+	 * erro em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Cliente> listarClientes()throws Exception{
 	
 		try{
@@ -141,6 +180,13 @@ public class ColecaoPessoa implements Serializable{
 		return null;
 	}
 	
+	/**
+	 *  método utilizado para listar Funcionarios da coleção, retornando o um objeto ArrayList 
+	 *  de todas os funcionários adicionados na coleção em caso de êxito ou uma mensagem de 
+	 *  erro em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Funcionario> listarFuncionarios()throws Exception{
 		
 		try{
@@ -194,6 +240,15 @@ public class ColecaoPessoa implements Serializable{
 		return null;
 
 	} */
+	
+	/**
+	 * método utilizado para remover pessoas da coleção, passando como 
+	 * parâmetro um tipo String relativo ao cpf da pessoa a ser 
+	 * removidas, e retornando true em caso de êxito ou false em caso erro.
+	 * @param cpf
+	 * @return
+	 * @throws Exception
+	 */
 	
 	public boolean removerPessoa(String cpf) throws Exception{
 

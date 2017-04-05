@@ -40,7 +40,13 @@ public class ColecaoVeiculo implements Serializable{
 		this.veiculos = new ArrayList<Veiculo>();
 	}
 	
-	
+	/**
+	 * Método utilizado para acessar servidor de arquivos e carregar as informações 
+	 * contidas no arquivo "veiculos.obj" para o sistema. Retorna boolean, em caso 
+	 * sucesso true, e em caso de falha exibe mensagem e retorna false.
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean carregarArqDeVeiculos()throws Exception{
 		
 		try{
@@ -67,6 +73,11 @@ public class ColecaoVeiculo implements Serializable{
 		return false;
 	}
 	
+	/**
+	 * Método utilizado para salvar a coleção de veículos no arquivo "veiculos.obj" 
+	 * contido no servidor.
+	 * @return
+	 */
 	public boolean salvarArqDeVeiculos(){
 		try{
 			iNet.enviarObject(this.veiculos, localizacao);
@@ -77,6 +88,14 @@ public class ColecaoVeiculo implements Serializable{
 		return false;
 	}
 
+	/**
+	 * método utilizado para adicionar veiculos a coleção, passando como parâmetro 
+	 * um objeto do tipo Veiculo, e retornando true em caso de êxito ou false em 
+	 * caso de erro.
+	 * @param v
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean addVeiculo(Veiculo v)throws Exception{
 		try{
 			if(!veiculos.contains(v)){
@@ -90,12 +109,15 @@ public class ColecaoVeiculo implements Serializable{
 		}
 		return false;
 		
-			/**
-			 * id.salvarEmArq(this.veiculo,"veiculos.txt");
-			 * 		Colocar um método para salvar no aquivo passando a caleção como paramentro
-			 */
 	}
-
+	
+	/**
+	 * método utilizado para listar veículos da coleção, retornando o objeto ArrayList 
+	 * de todas os veículos adicionados na coleção em caso de êxito ou uma mensagem de 
+	 * erro em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Veiculo> listarVeiculos()throws Exception{
 		try{
 			//if(!this.veiculos.isEmpty()){
@@ -107,6 +129,13 @@ public class ColecaoVeiculo implements Serializable{
 			return null;
 	}
 	
+	/**
+	 * método utilizado para listar veículos com o atributo disponibilidade válido como
+	 * true da coleção, retornando o objeto ArrayList de todas os veículos adicionados 
+	 * na coleção em caso de êxito ou uma mensagem de erro em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Veiculo> listarVeiculosDisponiveis()throws Exception {
 		try{
 			ArrayList<Veiculo> veiculos = new ArrayList<Veiculo>();
@@ -125,6 +154,13 @@ public class ColecaoVeiculo implements Serializable{
 
 	} 
 
+	/**
+	 * método utilizado para listar automóveis da coleção, retornando o objeto 
+	 * ArrayList de todas os automóveis adicionados na coleção em caso de 
+	 * êxito ou uma mensagem de erro em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Automovel> listarAutomoveis()throws Exception {
 		try{
 			ArrayList<Automovel> automovel = new ArrayList<Automovel>();
@@ -142,7 +178,14 @@ public class ColecaoVeiculo implements Serializable{
 		return null;
 
 	} 
-	
+
+	/**
+	 * método utilizado para listar motocicletas da coleção, retornando o objeto 
+	 * ArrayList de todas as motocicletas adicionados na coleção em caso de 
+	 * êxito ou uma mensagem de erro em caso de erro.
+	 * @return
+	 * @throws Exception
+	 */
 	public ArrayList<Motocicleta> listarMotocicleta()throws Exception {
 		try{
 			ArrayList<Motocicleta> motocicleta = new ArrayList<Motocicleta>();
@@ -177,7 +220,14 @@ public class ColecaoVeiculo implements Serializable{
 	}*/
 	
 	
-
+	/**
+	 * método utilizado para remover veículos da coleção, passando como parâmetro um 
+	 * tipo String relativo ao número da placa dos veículos a serem removidos, e 
+	 * retornando true em caso de êxito ou false em caso de erro.
+	 * @param placa
+	 * @return
+	 * @throws Exception
+	 */
 	public boolean removerVeiculo(String placa) throws Exception{
 		try{
 		//	Idao id;
