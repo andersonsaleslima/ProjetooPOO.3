@@ -425,19 +425,24 @@ public class Principal implements Serializable{
 	//	LocalDate dataDev,dataRet;
 
 		//String data = new String();
-		LocalDateTime dataDev,dataRet;
-
+		String dataDev=null,dataRet = null;
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		
 		Locacao locacao = new Locacao();
 		double d = 0;
 
+		System.out.println("Digite a data de Retirada: ");
+	//	dataRet=lerDataEHora();
+		locacao.setDataRetirada(getData());
 
-	
-	   System.out.println("Digite a data de Retirada: ");
-	   dataRet=getData();
-	   locacao.setDataRetirada(dataRet);
 		System.out.println("Digite a data de devolucao: ");
-				locacao.setDataDevolucao(getData());
-
+	//	dataDev=lerDataEHora();
+		locacao.setDataDevolucao(getData());
+		/*if(sdf.parse(dataDev).getTime() < sdf.parse(dataRet).getTime()){
+			   System.out.println("data incorreta");
+			   return false;
+		   }*/
+		
 		System.out.print("digite o cpf do cliente: ");
 		str = lerDocumento();
 		if(ic.pesquisarPessoaPeloCPF(str)!=null){

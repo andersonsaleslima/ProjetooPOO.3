@@ -147,6 +147,10 @@ public class ColecaoLocacao implements Serializable{
 		return this.locacoes;
 			
 	}
+	/*
+	public boolean devolverLocacao(){
+		return true;
+	}*/
 /*	
  * Verificar necessidade
  * 

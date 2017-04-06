@@ -1,5 +1,6 @@
 package controller;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
@@ -62,6 +63,25 @@ public class Locacao implements Serializable {
 		
 		return veiculo.getPrecoPorHra()*p;
 	}
+	
+	/**
+	 * Calcula Valor da Locação
+	 * @throws Exception 
+	 */
+	/*public  double calcValorLoc() throws Exception{
+	
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		//Period p=Period.between(dataRetirada,dataDevolucao);
+		
+		int inicio = (int) sdf.parse(this.dataRetirada).getTime();
+		int termino = (int) sdf.parse(this.dataDevolucao).getTime(); 
+			
+		double resultadoEmHoras = ( (termino - inicio) / 3600000 );
+		
+		
+		return veiculo.getPrecoPorHra()*resultadoEmHoras;
+	}*/
+	
 	public int getId() {
 		return id;
 	}
