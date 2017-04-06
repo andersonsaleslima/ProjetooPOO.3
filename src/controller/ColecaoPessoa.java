@@ -121,7 +121,7 @@ public class ColecaoPessoa implements Serializable{
 		if(!pessoas.contains(p)){
 			pessoas.add(p);
 			try {
-				iNet.enviarObject(this.pessoas, localizacao);
+			//	iNet.enviarObject(this.pessoas, localizacao);
 			//	id.salvarEmArq(this.pessoas,localizacao);
 				return true;
 
@@ -258,7 +258,7 @@ public class ColecaoPessoa implements Serializable{
 					pessoas.remove(pessoa);
 
 					try {
-						iNet.enviarObject(this.pessoas, localizacao);
+					//	iNet.enviarObject(this.pessoas, localizacao);
 				//		id.salvarEmArq(this.pessoas,localizacao);
 						return true;
 					} catch (Exception e) {

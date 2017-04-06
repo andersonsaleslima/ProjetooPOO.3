@@ -96,7 +96,7 @@ public class ColecaoLocacao implements Serializable{
 				i++;
 				locacao.setId(i);
 				locacoes.add(locacao);
-				iNet.enviarObject(this.locacoes, localizacao);
+			//	iNet.enviarObject(this.locacoes, localizacao);
 			//	id.salvarEmArq(this.locacoes, localizacao);
 				return true;
 			}
@@ -121,7 +121,7 @@ public class ColecaoLocacao implements Serializable{
 			for (Locacao locacao : this.locacoes) {
 				if (locacao.getId()==id){
 					locacoes.remove(locacao);
-					this.iNet.enviarObject(this.locacoes, localizacao);
+				//	this.iNet.enviarObject(this.locacoes, localizacao);
 				//	this.id.salvarEmArq(this.locacoes, localizacao);
 					return true;
 				}
