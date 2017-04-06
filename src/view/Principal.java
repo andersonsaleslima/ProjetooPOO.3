@@ -449,6 +449,7 @@ public class Principal implements Serializable{
 			}
 		}else{
 			System.out.println("Cliente não encontrado");
+			return false;
 		}
 
 		/**
